@@ -19,6 +19,8 @@
 	* 例子：windows安装完llvm的路径为`D:/Program Files/LLVM/bin/libclang.dll`
 * 我是用数据库保存提取的数据，也可以修改为用文件保存，具体格式详见`cpp.sql`
 
+---
+
 # SourcerceCC 
 
 ---
@@ -51,7 +53,7 @@
 ### Example
 
 * `python SourcererCC.py --f /Users/xuyisen/Downloads/ACM/` :最小token为默认值`0`,最小相似度为默认值`0.7`,最大相似度为默认值`1.0`。
-* `python SourceCC.py --f /Users/xuyisen/Downloads/ACM/ -mt 10 -mins 0.6 -maxs 0.7`,最小token为`10`,最小相似度为`0.6`,最大相似度为默认值`0.6`。
+* `python SourcererCC.py --f /Users/xuyisen/Downloads/ACM/ -mt 10 -mins 0.6 -maxs 0.7`,最小token为`10`,最小相似度为`0.6`,最大相似度为默认值`0.6`。
 
 
 
