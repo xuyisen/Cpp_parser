@@ -39,7 +39,7 @@
 * 运行`python SourcererCC.py`命令，注意这里一共有四个参数
 	* `--f` :装有所有待检测cpp文件的文件夹，为必输项
 	* `-mt` :最少token，有些函数太短了，没有必要检测，非必输项，默认值为`0`, 小函数的例子：
-			```c++
+			```
 			int main(){
 				slove();
 				return 0;
@@ -53,7 +53,7 @@
 ### Example
 
 * `python SourcererCC.py --f /Users/xuyisen/Downloads/ACM/` :最小token为默认值`0`,最小相似度为默认值`0.7`,最大相似度为默认值`1.0`。
-* `python SourcererCC.py --f /Users/xuyisen/Downloads/ACM/ -mt 10 -mins 0.6 -maxs 0.7`,最小token为`10`,最小相似度为`0.6`,最大相似度为默认值`0.6`。
+* `python SourcererCC.py --f /Users/xuyisen/Downloads/ACM/ -mt 10 -mins 0.6 -maxs 0.7`,最小token为`10`,最小相似度为`0.6`,最大相似度为`0.7`。
 
 
 
