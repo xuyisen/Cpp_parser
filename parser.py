@@ -33,9 +33,9 @@ def preorder_travers_AST(cursor):
     str_ast = str(cursor.kind).replace("CursorKind.","")    # 提取特征2
     global ast
     ast = ast + str_ast+" "
-    # print(cursor.kind ,end=' ')
-    # print(cursor.type.kind, end= ' ')
-    # print(get_code(cursor))
+    print(cursor.kind ,end=' ')
+    print(cursor.type.kind, end= ' ')
+    print(get_code(cursor))
     # print(iter_cursor_content(cursor))
     for cur in cursor.get_children():
         #do something
@@ -61,13 +61,13 @@ def visit_function(node):
 
     code_sql = get_code(node)
 
-    sql = "INSERT INTO cpp (file,line,`column`,code,identifier,ast) values(%s,%s,%s,%s,%s,%s)"
-    file_sql = str(node.location.file)
-    line_sql = str(node.location.line)
-    column_sql = str(node.location.column)
-    values = (file_sql,line_sql,column_sql,code_sql,identifier,ast)
-    cs.execute(sql,values)
-    db.commit()
+    # sql = "INSERT INTO cpp (file,line,`column`,code,identifier,ast) values(%s,%s,%s,%s,%s,%s)"
+    # file_sql = str(node.location.file)
+    # line_sql = str(node.location.line)
+    # column_sql = str(node.location.column)
+    # values = (file_sql,line_sql,column_sql,code_sql,identifier,ast)
+    # cs.execute(sql,values)
+    # db.commit()
     # print(ast)
     # print(identifier)
     print(node.location)

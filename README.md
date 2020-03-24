@@ -1,8 +1,8 @@
-# Cpp_parser
+# parser
 
 ---
 
-基于Clang的C++语言解析器
+C++代码解析器
 
 ### Requirements:
 
@@ -21,11 +21,11 @@
 
 ---
 
-# SourcererCC 
+# cpp_parser
 
 ---
 
-基于token的克隆代码检测
+C++代码克隆检测
 
 ### Requirements:
 
@@ -35,8 +35,8 @@
 
 ### How to use 
 
-* 首先将Build部分的步骤重新配置一遍，注意更新`SourcererCC.py`中的`libclangPath`路径，数据库部分可略过。
-* 运行`python SourcererCC.py`命令，注意这里一共有四个参数
+* 首先将C++解释器部分Build部分的步骤重新配置一遍，注意更新`cpp_parser.py`中的`libclangPath`路径，数据库部分可略过。
+* 运行`python cpp_parser.py`命令，注意这里一共有四个参数
 	* `--f` :装有所有待检测cpp文件的文件夹，为必输项
 	* `-mt` :最少token，有些函数太短了，没有必要检测，非必输项，默认值为`0`, 小函数的例子：
 			```
@@ -52,8 +52,60 @@
 
 ### Example
 
-* `python SourcererCC.py --f /Users/xuyisen/Downloads/ACM/` :最小token为默认值`0`,最小相似度为默认值`0.7`,最大相似度为默认值`1.0`。
-* `python SourcererCC.py --f /Users/xuyisen/Downloads/ACM/ -mt 10 -mins 0.6 -maxs 0.7`,最小token为`10`,最小相似度为`0.6`,最大相似度为`0.7`。
+* `python cpp_parser.py --f /Users/xuyisen/Downloads/ACM/` :最小token为默认值`0`,最小相似度为默认值`0.7`,最大相似度为默认值`1.0`。
+* `python cpp_parser.py --f /Users/xuyisen/Downloads/ACM/ -mt 10 -mins 0.6 -maxs 0.7`,最小token为`10`,最小相似度为`0.6`,最大相似度为`0.7`。
 
 
 
+---
+
+# java_parser
+
+---
+
+Java代码克隆检测
+
+### Requirements:
+
+* python 3.7.4 
+* javalang,最新版本
+
+### How to use 
+
+* 安装Python的javalang包，`pip install javalang`
+* 运行`python java_parser.py`命令，注意这里一共有四个参数
+	* `--f` :装有所有待检测cpp文件的文件夹，为必输项
+	* `-mt` :最少token，有些函数太短了，没有必要检测，非必输项，默认值为`0`。
+	* `-mins` :最小相似度，非必输项，默认值为`0.7`。
+	* `-maxs` :最大相似度，非必输项，默认值为`1.0`。
+
+### Example
+
+* `python java_parser.py --f /Users/xuyisen/Downloads/ACM/` :最小token为默认值`0`,最小相似度为默认值`0.7`,最大相似度为默认值`1.0`。
+* `python java_parser.py --f /Users/xuyisen/Downloads/ACM/ -mt 10 -mins 0.6 -maxs 0.7`,最小token为`10`,最小相似度为`0.6`,最大相似度为`0.7`。
+
+
+---
+
+# python_parser
+
+---
+
+Python代码克隆检测
+
+### Requirements:
+
+* python 3.7.4 
+
+### How to use 
+
+* 运行`python python_parser.py`命令，注意这里一共有四个参数
+	* `--f` :装有所有待检测cpp文件的文件夹，为必输项
+	* `-mt` :最少token，有些函数太短了，没有必要检测，非必输项，默认值为`0`。
+	* `-mins` :最小相似度，非必输项，默认值为`0.7`。
+	* `-maxs` :最大相似度，非必输项，默认值为`1.0`。
+
+### Example
+
+* `python python_parser.py --f /Users/xuyisen/Downloads/ACM/` :最小token为默认值`0`,最小相似度为默认值`0.7`,最大相似度为默认值`1.0`。
+* `python python_parser.py --f /Users/xuyisen/Downloads/ACM/ -mt 10 -mins 0.6 -maxs 0.7`,最小token为`10`,最小相似度为`0.6`,最大相似度为`0.7`。
