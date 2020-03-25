@@ -11,6 +11,8 @@ global_words = {}
 
 function_tokens = {}
 
+functions = 0
+
 
 libclangPath = r'/usr/local/opt/llvm/lib/libclang.dylib'  # 导入llvm 的lib文件
 if Config.loaded == True:
@@ -33,6 +35,8 @@ def visit_function(node,min_tokens):
         return
 
     tokens = {}
+    global functions
+    functions = functions + 1
     for token in node.get_tokens():
         if token.kind == TokenKind.KEYWORD:
             count_token(str(token.spelling),tokens)
@@ -54,11 +58,14 @@ def visit_function(node,min_tokens):
 
 def visit_root(node,min_tokens):
     '''遍历根节点'''
-    if node.kind == CursorKind.FUNCTION_DECL:
-        visit_function(node,min_tokens)
-    else:
-        for sub_node in node.get_children():
-            visit_root(sub_node,min_tokens)
+    try:
+        if node.kind == CursorKind.FUNCTION_DECL:
+            visit_function(node,min_tokens)
+        else:
+            for sub_node in node.get_children():
+                visit_root(sub_node,min_tokens)
+    except:
+        pass
 
 def parser(file_path,min_tokens):
     '''解析'''
@@ -146,6 +153,8 @@ if __name__ == '__main__':
             result = result +str(id)+ ': ************************************************\n'
             result = result + p[0]+ "\n\n\nscore: "+str(p[1])+"\n\n\n"
             id = id + 1
+
+    print(functions)
 
     with open("result.txt",'w') as f:
         f.write(result)
