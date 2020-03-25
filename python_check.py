@@ -117,6 +117,8 @@ def parser(file_path, min_tokens):
   f = open(file_path, 'r')
   filestring = f.read()
   (positions, strings) = getFunctions(filestring)
+  if strings == None:
+      return
   if len(strings) == 0:
       my_tokens = {}
       f = open(file_path, 'r')

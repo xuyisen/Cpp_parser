@@ -184,19 +184,24 @@ def parser(file_path, min_tokens):
   f = open(file_path, 'r')
   filestring = f.read()
   (positions, strings, names) = getFunctions(filestring, "//[^\n]*")
-  for i in range(len(strings)):
-    my_tokens = {}
-    tokens = list(javalang.tokenizer.tokenize(strings[i]))
-    for token in tokens:
-      if isinstance(token, javalang.tokenizer.Separator):
-        pass
-      elif isinstance(token, javalang.tokenizer.Operator):
-        pass
-      else:
-        count_token(str(token.value),my_tokens)
-    if len(my_tokens) >= min_tokens:
-        id = file_path+":"+str(positions[i][0])+":"+str(positions[i][1])+"\n\n"+strings[i]
-        function_tokens[id] = my_tokens
+  if strings == None:
+    return
+  try:
+    for i in range(len(strings)):
+      my_tokens = {}
+      tokens = list(javalang.tokenizer.tokenize(strings[i]))
+      for token in tokens:
+        if isinstance(token, javalang.tokenizer.Separator):
+          pass
+        elif isinstance(token, javalang.tokenizer.Operator):
+          pass
+        else:
+          count_token(str(token.value),my_tokens)
+      if len(my_tokens) >= min_tokens:
+          id = file_path+":"+str(positions[i][0])+":"+str(positions[i][1])+"\n\n"+strings[i]
+          function_tokens[id] = my_tokens
+  except:
+    pass
 
 
 if __name__ == "__main__":
